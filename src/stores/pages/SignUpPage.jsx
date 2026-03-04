@@ -11,12 +11,12 @@ function SignUpPage() {
   const { register } = useAuth()
   const navigate = useNavigate()
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     setError('')
     setSuccess('')
 
-    const response = register({ name, email, password })
+    const response = await register({ name, email, password })
 
     if (!response.ok) {
       setError(response.message)

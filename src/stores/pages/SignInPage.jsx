@@ -9,11 +9,11 @@ function SignInPage() {
   const { signIn } = useAuth()
   const navigate = useNavigate()
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     setError('')
 
-    const response = signIn({ email, password })
+    const response = await signIn({ email, password })
 
     if (!response.ok) {
       setError(response.message)
